@@ -25,7 +25,7 @@ If everything is correctly set-up, you will get a link like
 http://your.domain/cgi-bin/url.cgi?XxxYYY, which you can distribute or put into your content.
 
 ### url.cgi and rurl.cgi
-* **url.cgi** just redirects to bit.ly with shorted url and target web-server. Finally, target web server gets a referal with your original page. E.g. if you placed shortened link somwhere on http://notyourdomain.com/page/, target website will get referer http://not4yourdomain.com...
+* **url.cgi** just redirects to bit.ly with shorted url and target web-server. Finally, target web server gets a referal with your original page. E.g. if you placed shortened link somwhere on http://notyourdomain.com/page/, target website will get referer http://notyourdomain.com...
 * **rurl.cgi** generates some html with meta-redirect, and target server will get a referer with YOUR DOMAIN. This is useful, when you generating some referral traffic, which is related to your website.
 
 So, finally, mkurl.cgi generates link with url.cgi. You can change it manually to rurl.cgi and place somwhere not within your domain, but refering url will be your domain.
