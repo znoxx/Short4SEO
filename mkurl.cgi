@@ -3,7 +3,7 @@
 
 use strict;
 use CGI qw(param);
-use WWW::Shorten::Bitly;
+use WebService::Bitly;
 
 my $bitly_user = "-----put your bitly username here------";
 my $bitly_api = "---------------put your bitly key here---------";
@@ -29,8 +29,21 @@ print '</form>';
 if ($url)
 {
 
-  $url = makeashorterlink($url, $bitly_user, $bitly_api); 
+  my $bitly = WebService::Bitly->new(
+              user_name => $bitly_user,
+              user_api_key => $bitly_api,
+              );
 
+  my $shorten = $bitly->shorten($url);
+  if (!$shorten->is_error)
+  {
+    $url = $shorten->short_url;
+  }
+  else
+  {
+    undef $url;
+  }
+ 
   if ($url)
   {
        $url =~ m/http\:\/\/bit\.ly\/(.*)/;
